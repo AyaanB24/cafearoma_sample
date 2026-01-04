@@ -21,19 +21,16 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: cafearoma_sample/package-lock.json
       - name: Install dependencies
         run: npm ci
-        working-directory: cafearoma_sample
       - name: Build
         run: npm run build
-        working-directory: cafearoma_sample
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'cafearoma_sample/dist'
+          path: './dist'
 
   deploy:
     environment:
